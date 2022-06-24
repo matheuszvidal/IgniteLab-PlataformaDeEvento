@@ -1,6 +1,7 @@
 import { DefaultUi, Player, Youtube } from "@vime/react";
-import { CaretRight, DiscordLogo, FileArrowDown, ImageSquare, Lightning, Spinner } from "phosphor-react";
+import { CaretRight, DiscordLogo, FileArrowDown, ImageSquare, Lightning } from "phosphor-react";
 import { gql, useQuery } from "@apollo/client";
+import { SpinnerLoading } from "./SpinnerLoading";
 
 import '@vime/core/themes/default.css';
 
@@ -48,16 +49,12 @@ export function Video(props: VideoProps) {
 
     // Desafio -> Fazer um spinner enquanto carrega a página
     if (!data) {
-        return <div className="flex-1">
-            <div className="flex flex-col items-center justify-center mt-[100px]">
-                <div className="text-center">
-                    <div className="text-3xl">
-                        <Spinner size={100}/>
-                        <p>  Loading   </p>
-                    </div>
-                </div>
-            </div>    
-        </div>
+        return (
+            <header className="w-full flex flex-col items-center justify-center">
+                <SpinnerLoading />
+                <p className="text-2xl mt-5">Loading...</p>
+            </header>
+        )
     }
 
     return (
@@ -97,7 +94,7 @@ export function Video(props: VideoProps) {
                         </div>
 
                         <div className="flex flex-col gap-4">
-                            <a href="" className="p-4 text-sm bg-green-500 flex items-center rounded font-bold uppercase gap-2 justify-center hover:bg-green-700 transition-colors">
+                            <a href="https://discord-service.rocketseat.dev/signin/ignite-lab" target="_blank" className="p-4 text-sm bg-green-500 flex items-center rounded font-bold uppercase gap-2 justify-center hover:bg-green-700 transition-colors">
                                 <DiscordLogo size={24} />
                                 Comunidade do discord
                             </a> 
@@ -115,7 +112,7 @@ export function Video(props: VideoProps) {
                     </div>
 
                     <div className="gap-8 mt-20 grid grid-cols-2">
-                        <a href="" className="bg-gray-700 rounded overflow-hidden flex items-stretch gap-6 hover:bg-gray-600 transition-colors">
+                        <a href="https://efficient-sloth-d85.notion.site/Material-complementar-86d4ef35af16471ebc3ae3eba1a378e5" target="_blank" className="bg-gray-700 rounded overflow-hidden flex items-stretch gap-6 hover:bg-gray-600 transition-colors">
                             <div className="bg-green-700 h-full p-6 flex items-center">
                                 <FileArrowDown size={40} />
                             </div>
@@ -132,7 +129,7 @@ export function Video(props: VideoProps) {
                             </div>
                         </a>
 
-                        <a href="" className="bg-gray-700 rounded overflow-hidden flex items-stretch gap-6 hover:bg-gray-600 transition-colors">
+                        <a href="https://drive.google.com/drive/folders/1mxWnvlqmH7MbVRv2Na9xFNgCQCygM1iR" target="_blank" className="bg-gray-700 rounded overflow-hidden flex items-stretch gap-6 hover:bg-gray-600 transition-colors">
                             <div className="bg-green-700 h-full p-6 flex items-center">
                                 <ImageSquare size={40} />
                             </div>
@@ -148,9 +145,14 @@ export function Video(props: VideoProps) {
                                 <CaretRight size={24} />
                             </div>
                         </a>
-                    
-                            
                     </div>
+                
+                    <div className="mt-10 text-sm leading-relaxed">
+                        <p>Site produzido durante o Ignite Lab - Jun/2022</p>
+                        <p>Aluno - Matheus Zidane Vidal Ferro</p>
+
+                    </div>
+
                 </div>
             </div>
     )
