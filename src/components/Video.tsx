@@ -122,7 +122,7 @@ export function Video(props: VideoProps) {
                 
                     <div className="mt-10 text-sm leading-relaxed">
                         <p>Site produzido durante o Ignite Lab - Jun/2022</p>
-                        <p>Aluno - Matheus Zidane Vidal Ferro</p>
+                        <p>Dev - Matheus Zidane Vidal Ferro</p>
 
                     </div>
 
